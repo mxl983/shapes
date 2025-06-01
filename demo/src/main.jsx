@@ -1,26 +1,26 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { App } from './App.js'
-import { Simulator } from './runner/Simulator.js';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { Simulator } from "./runner/Simulator";
+import "./app.css";
 
-let { vw, vh } = getViewboxDimensions();
-const sim = await Simulator.create(vw, vh);
-sim.start();
+function getViewboxDimensions() {
+  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+  console.log(vh, vw)
+  return { vw, vh };
+}
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  createRoot(rootElement).render(
-    <StrictMode>
-      <App
-        sim={sim}
-      />
-    </StrictMode>,
+async function main() {
+  let { vw, vh } = getViewboxDimensions();
+  const sim = await Simulator.create(vw, vh);
+  sim.start();
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <App sim={sim} />
+    </React.StrictMode>
   );
 }
 
-function getViewboxDimensions() {
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 350;
-  const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-  return { vw, vh }
-}
+main();
