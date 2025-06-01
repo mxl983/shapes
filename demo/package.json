@@ -13,13 +13,17 @@
     "@ant-design/icons": "^6.0.0",
     "ant-design": "^1.0.0",
     "antd": "^5.25.3",
+    "impact2d": "^1.1.1",
+    "pixi.js": "^8.9.2",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-sparklines": "^1.7.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "@types/react-sparklines": "^1.7.5",
     "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",

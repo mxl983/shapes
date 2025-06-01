@@ -1,16 +1,20 @@
 import { SidebarControls } from "./components/SideControl"
 import "./App.css"
+import { Simulator } from "./runner/Simulator";
 
-export const App = () => {
+type AppProps = {
+  sim: Simulator;
+};
+
+export const App = ({
+  sim
+}: AppProps) => {
+
   return (
     <div className="app-root">
       <SidebarControls
-        onSelectScene={() => { }}
-        onPause={undefined}
-        onRefresh={undefined}
-        onBomb={undefined}
-        onAddBody={undefined}>
-      </SidebarControls>
+        sim={sim}
+      />
     </div>
   )
 }
